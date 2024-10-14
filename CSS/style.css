@@ -3,4 +3,17 @@ body {
 }
 
 #game-area {
+  width: 80vw;
+  height: 80vh;
+  outline: solid 8px brown;
+  display: flex;
+  align-items: center;
+}
+
+#tunnel {
+  border-top: solid 6px brown;
+  border-bottom: solid 6px brown;
+  width: 80vw;
+  height: 60vh;
+  flex-direction: column;
 }
