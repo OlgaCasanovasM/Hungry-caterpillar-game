@@ -30,8 +30,48 @@ class Caterpillar {
   }
 }
 
+class JunkFood {
+  constructor() {
+    this.width = 10;
+    this.height = 10;
+    this.positionX = 100;
+    this.positionY = 30;
+    this.junk = null;
+
+    this.displayJunk();
+  }
+  displayJunk() {
+    this.junk = document.createElement("div");
+    this.junk.id = "junk-food";
+    this.junk.style.width = this.width + "vw";
+    this.junk.style.height = this.height + "vh";
+    this.junk.style.left = this.positionX + "vw";
+    this.junk.style.bottom = this.positionY + "vh";
+    const tunnel = document.getElementById("tunnel");
+    tunnel.appendChild(this.junk);
+  }
+
+  moveLeft() {
+    this.positionX--;
+    this.junk.style.left = this.positionX + "vw";
+  }
+}
+
 ///////////////////INSTANCES///////////////////////////
 const newPlayer = new Caterpillar();
+
+const newJunkArr = [];
+
+setInterval(function () {
+  const newJunk = new JunkFood();
+  newJunkArr.push(newJunk);
+}, 2000);
+
+setInterval(function () {
+  newJunkArr.forEach((element) => {
+    element.moveLeft();
+  });
+}, 100);
 
 /////////////EVENT LISTENERS//////////////////////////
 
@@ -42,3 +82,5 @@ document.addEventListener("keydown", function (element) {
     newPlayer.moveDown();
   }
 });
+
+//////THINGS FOR LATER USE/////////
