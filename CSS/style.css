@@ -16,4 +16,10 @@ body {
   width: 80vw;
   height: 60vh;
   flex-direction: column;
+  position: relative;
+}
+
+#caterpillar {
+  background-color: #674f04;
+  position: absolute;
 }
