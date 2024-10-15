@@ -9,8 +9,24 @@ body {
   display: flex;
   align-items: center;
 }
+#game-area-over {
+  width: 80vw;
+  height: 80vh;
+  outline: solid 8px brown;
+  display: flex;
+  align-items: center;
+}
 
 #tunnel {
+  border-top: solid 6px brown;
+  border-bottom: solid 6px brown;
+  width: 80vw;
+  height: 60vh;
+  flex-direction: column;
+  position: relative;
+}
+
+#tunnel-over {
   border-top: solid 6px brown;
   border-bottom: solid 6px brown;
   width: 80vw;
@@ -27,4 +43,15 @@ body {
 #junk-food {
   background-color: #ff5959;
   position: absolute;
+}
+
+#game-over {
+  color: #ff5959;
+  text-align: center;
+}
+
+#play-again {
+  position: absolute;
+  bottom: 10vw;
+  left: 35vw;
 }

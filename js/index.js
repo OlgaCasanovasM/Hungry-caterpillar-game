@@ -57,10 +57,23 @@ class JunkFood {
   }
 }
 
+////////////HTML ELEMENTS///////////////
+
+const gameView = document.querySelector("#game-view");
+const endView = document.querySelector("#end-view");
+const tunnel = document.querySelector("#tunnel");
+
+////////////BOTH VIEWS///////////////
+
+gameView.style.display = "block";
+endView.style.display = "none";
+
 ///////////////////INSTANCES///////////////////////////
 const newPlayer = new Caterpillar();
 
 const newJunkArr = [];
+
+///////////////////INTERVALS and OTHER FUNCTIONS///////////////////////////
 
 setInterval(function () {
   const newJunk = new JunkFood();
@@ -68,10 +81,39 @@ setInterval(function () {
 }, 2000);
 
 setInterval(function () {
-  newJunkArr.forEach((element) => {
+  newJunkArr.forEach((element, index) => {
     element.moveLeft();
+    if (
+      newPlayer.positionX < element.positionX + element.width &&
+      newPlayer.positionX + newPlayer.width > element.positionX &&
+      newPlayer.positionY < element.positionY + element.height &&
+      newPlayer.positionY + newPlayer.height > element.positionY
+    ) {
+      element.junk.remove();
+      newJunkArr.splice(index, 1);
+
+      newPlayer.width++;
+      newPlayer.height++;
+      newPlayer.caterpillar.style.width = newPlayer.width + "vw";
+      newPlayer.caterpillar.style.height = newPlayer.height + "vh";
+    }
   });
+
+  touchTunnel();
 }, 100);
+
+function touchTunnel() {
+  const tunnelHeight = tunnel.getBoundingClientRect().height;
+
+  if (
+    newPlayer.positionY <= 0 ||
+    newPlayer.positionY + newPlayer.height >=
+      (tunnelHeight / window.innerHeight) * 100
+  ) {
+    gameView.style.display = "none";
+    endView.style.display = "block";
+  }
+}
 
 /////////////EVENT LISTENERS//////////////////////////
 
@@ -83,4 +125,8 @@ document.addEventListener("keydown", function (element) {
   }
 });
 
+const restartButton = document.getElementById("play-again");
+restartButton.addEventListener("click", function () {
+  console.log("restart");
+});
 //////THINGS FOR LATER USE/////////
