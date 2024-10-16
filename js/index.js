@@ -115,6 +115,27 @@ function touchTunnel() {
   }
 }
 
+function restartGame() {
+  //going back to initial view
+  gameView.style.display = "block";
+  endView.style.display = "none";
+
+  // setting catterpillar to its original size
+  newPlayer.width = 20;
+  newPlayer.height = 10;
+  newPlayer.positionX = 20;
+  newPlayer.positionY = 30;
+  newPlayer.caterpillar.style.width = newPlayer.width + "vw";
+  newPlayer.caterpillar.style.height = newPlayer.height + "vh";
+  newPlayer.caterpillar.style.left = newPlayer.positionX + "vw";
+  newPlayer.caterpillar.style.bottom = newPlayer.positionY + "vh";
+
+  // getting rid of all junk food
+  newJunkArr.forEach((junk) => {
+    junk.junk.remove(); // Remove from DOM
+  });
+  newJunkArr.length = 0; // remove from array
+}
 /////////////EVENT LISTENERS//////////////////////////
 
 document.addEventListener("keydown", function (element) {
@@ -127,6 +148,6 @@ document.addEventListener("keydown", function (element) {
 
 const restartButton = document.getElementById("play-again");
 restartButton.addEventListener("click", function () {
-  console.log("restart");
+  restartGame();
 });
 //////THINGS FOR LATER USE/////////
