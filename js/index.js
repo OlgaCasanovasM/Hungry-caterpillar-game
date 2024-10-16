@@ -32,10 +32,10 @@ class Caterpillar {
 
 class JunkFood {
   constructor() {
-    this.width = 5;
-    this.height = 5;
+    this.width = 3;
+    this.height = 3;
     this.positionX = 100;
-    this.positionY = Math.floor(Math.random() * (60 - this.height + 1));
+    this.positionY = Math.floor(Math.random() * (40 - this.height + 1));
     this.junk = null;
 
     this.displayJunk();

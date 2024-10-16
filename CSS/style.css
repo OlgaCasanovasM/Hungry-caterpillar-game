@@ -1,5 +1,8 @@
 body {
   background-color: #d3bd9a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
@@ -51,12 +54,13 @@ h1 {
 
 #caterpillar {
   position: absolute;
-  background-image: url(./Oruga.png);
+  background-image: url("./Oruga.png");
 }
 
 #junk-food {
   background-color: #ff5959;
   position: absolute;
+  background-image: url("./burger.png");
 }
 
 #game-over {
