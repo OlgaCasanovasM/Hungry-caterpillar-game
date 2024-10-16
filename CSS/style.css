@@ -9,36 +9,49 @@ h1 {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   color: #5a3921;
   text-align: center;
+  position: relative;
+}
+#word-points {
+  color: #5a3921;
+  position: absolute;
+  left: 25vw;
+}
+
+#new-point {
+  color: #5a3921;
+  position: absolute;
+  left: 30vw;
 }
 #game-view {
   display: flex;
   align-items: center;
+  max-width: 60vw;
 }
 #game-area {
-  width: 80vw;
+  width: 60vw;
   height: 80vh;
   outline: solid 8px #5a3921;
   display: flex;
   align-items: center;
-  background-image: url("./underground-shot.png");
+  background-image: url("../images/underground-shot.png");
 }
 #game-area-over {
-  width: 80vw;
+  width: 60vw;
   height: 80vh;
   outline: solid 8px #5a3921;
   display: flex;
   align-items: center;
-  background-image: url("./underground-shot.png");
+  background-image: url("../images/underground-shot.png");
 }
 
 #tunnel {
   border-top: solid 6px #5a3921;
   border-bottom: solid 6px #5a3921;
-  width: 80vw;
-  height: 40vh;
+  width: 60vw;
+  height: 60vh;
   flex-direction: column;
   position: relative;
-  background-image: url("https://media.giphy.com/media/jS2YNIz8bPi2kaaV1E/giphy.gif?cid=ecf05e47shuicxoyv2nci2o7xbol5wlywvuhk2k82esv2zwb&ep=v1_gifs_search&rid=giphy.gif&ct=g");
+  background-image: url("../images/background.webp");
   overflow: hidden;
 }
 
@@ -49,18 +62,26 @@ h1 {
   height: 60vh;
   flex-direction: column;
   position: relative;
-  background-image: url("https://media.giphy.com/media/jS2YNIz8bPi2kaaV1E/giphy.gif?cid=ecf05e47shuicxoyv2nci2o7xbol5wlywvuhk2k82esv2zwb&ep=v1_gifs_search&rid=giphy.gif&ct=g");
+  background-image: url("../images/background.webp");
 }
 
 #caterpillar {
   position: absolute;
-  background-image: url("./Oruga.png");
+  background-image: url("../images/caterpillar.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 #junk-food {
-  background-color: #ff5959;
   position: absolute;
-  background-image: url("./burger.png");
+  background-image: url("../images/burger.png");
+  background-size: 100%;
+}
+
+#veggies {
+  background-image: url("../images/broccoli.png");
+  position: absolute;
+  background-size: 100%;
 }
 
 #game-over {
@@ -72,7 +93,7 @@ h1 {
 #play-again {
   position: absolute;
   bottom: 10vw;
-  left: 35vw;
+  left: 25vw;
   width: 10vw;
   height: 4vw;
   background-color: #d3bd9a;

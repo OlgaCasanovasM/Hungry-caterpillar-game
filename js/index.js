@@ -2,8 +2,8 @@
 
 class Caterpillar {
   constructor() {
-    this.width = 5;
-    this.height = 3;
+    this.width = 15;
+    this.height = 15;
     this.positionX = 20;
     this.positionY = 15;
     this.caterpillar = null;
@@ -32,10 +32,10 @@ class Caterpillar {
 
 class JunkFood {
   constructor() {
-    this.width = 3;
-    this.height = 3;
+    this.width = 8;
+    this.height = 15;
     this.positionX = 100;
-    this.positionY = Math.floor(Math.random() * (40 - this.height + 1));
+    this.positionY = Math.floor(Math.random() * (60 - this.height + 1));
     this.junk = null;
 
     this.displayJunk();
@@ -57,11 +57,38 @@ class JunkFood {
   }
 }
 
+class Veggies {
+  constructor() {
+    this.width = 8;
+    this.height = 15;
+    this.positionX = 100;
+    this.positionY = Math.floor(Math.random() * (60 - this.height + 1));
+    this.vegg = null;
+
+    this.displayJunk();
+  }
+  displayJunk() {
+    this.vegg = document.createElement("div");
+    this.vegg.id = "veggies";
+    this.vegg.style.width = this.width + "vw";
+    this.vegg.style.height = this.height + "vh";
+    this.vegg.style.left = this.positionX + "vw";
+    this.vegg.style.bottom = this.positionY + "vh";
+    const tunnel = document.getElementById("tunnel");
+    tunnel.appendChild(this.vegg);
+  }
+  moveLeft() {
+    this.positionX--;
+    this.vegg.style.left = this.positionX + "vw";
+  }
+}
+
 ////////////HTML ELEMENTS///////////////
 
 const gameView = document.querySelector("#game-view");
 const endView = document.querySelector("#end-view");
 const tunnel = document.querySelector("#tunnel");
+const counter = document.getElementById("new-point");
 
 ////////////BOTH VIEWS///////////////
 
@@ -72,12 +99,18 @@ endView.style.display = "none";
 const newPlayer = new Caterpillar();
 
 const newJunkArr = [];
+const newVeggArr = [];
 
 ///////////////////INTERVALS and OTHER FUNCTIONS///////////////////////////
 
 setInterval(function () {
   const newJunk = new JunkFood();
   newJunkArr.push(newJunk);
+}, 2000);
+
+setInterval(function () {
+  const newVeggie = new Veggies();
+  newVeggArr.push(newVeggie);
 }, 2000);
 
 setInterval(function () {
@@ -93,13 +126,31 @@ setInterval(function () {
       newJunkArr.splice(index, 1);
 
       newPlayer.width++;
-      newPlayer.height++;
+      newPlayer.height = newPlayer.height + 4;
       newPlayer.caterpillar.style.width = newPlayer.width + "vw";
       newPlayer.caterpillar.style.height = newPlayer.height + "vh";
     }
   });
 
   touchTunnel();
+}, 100);
+
+let count = 0;
+setInterval(function () {
+  newVeggArr.forEach((element, index) => {
+    element.moveLeft();
+    if (
+      newPlayer.positionX < element.positionX + element.width &&
+      newPlayer.positionX + newPlayer.width > element.positionX &&
+      newPlayer.positionY < element.positionY + element.height &&
+      newPlayer.positionY + newPlayer.height > element.positionY
+    ) {
+      element.vegg.remove();
+      newVeggArr.splice(index, 1);
+      count++;
+      counter.innerText = count;
+    }
+  });
 }, 100);
 
 function touchTunnel() {
@@ -121,10 +172,10 @@ function restartGame() {
   endView.style.display = "none";
 
   // setting catterpillar to its original size
-  newPlayer.width = 20;
-  newPlayer.height = 10;
+  newPlayer.width = 10;
+  newPlayer.height = 6;
   newPlayer.positionX = 20;
-  newPlayer.positionY = 30;
+  newPlayer.positionY = 15;
   newPlayer.caterpillar.style.width = newPlayer.width + "vw";
   newPlayer.caterpillar.style.height = newPlayer.height + "vh";
   newPlayer.caterpillar.style.left = newPlayer.positionX + "vw";
@@ -135,7 +186,14 @@ function restartGame() {
     junk.junk.remove(); // Remove from DOM
   });
   newJunkArr.length = 0; // remove from array
+
+  // getting rid of all veggies
+  newVeggArr.forEach((vegg) => {
+    vegg.vegg.remove(); // Remove from DOM
+  });
+  newVeggArr.length = 0; // remove from array
 }
+
 /////////////EVENT LISTENERS//////////////////////////
 
 document.addEventListener("keydown", function (element) {
