@@ -2,8 +2,8 @@
 
 class Caterpillar {
   constructor() {
-    this.width = 20;
-    this.height = 10;
+    this.width = 5;
+    this.height = 3;
     this.positionX = 20;
     this.positionY = 15;
     this.caterpillar = null;

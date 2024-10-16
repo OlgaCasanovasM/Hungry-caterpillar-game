@@ -2,13 +2,22 @@ body {
   background-color: #d3bd9a;
 }
 
+h1 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: #5a3921;
+  text-align: center;
+}
+#game-view {
+  display: flex;
+  align-items: center;
+}
 #game-area {
   width: 80vw;
   height: 80vh;
   outline: solid 8px #5a3921;
   display: flex;
   align-items: center;
-  background-image: url("./underground\ shot.png");
+  background-image: url("./underground-shot.png");
 }
 #game-area-over {
   width: 80vw;
@@ -16,7 +25,7 @@ body {
   outline: solid 8px #5a3921;
   display: flex;
   align-items: center;
-  background-image: url("./underground\ shot.png");
+  background-image: url("./underground-shot.png");
 }
 
 #tunnel {
@@ -41,8 +50,8 @@ body {
 }
 
 #caterpillar {
-  background-color: #674f04;
   position: absolute;
+  background-image: url(./Oruga.png);
 }
 
 #junk-food {
@@ -53,10 +62,19 @@ body {
 #game-over {
   color: #ff5959;
   text-align: center;
+  font-size: 3vw;
 }
 
 #play-again {
   position: absolute;
   bottom: 10vw;
   left: 35vw;
+  width: 10vw;
+  height: 4vw;
+  background-color: #d3bd9a;
+  border-radius: 6px;
+  color: #5a3921;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 1vw;
+  border: #5a3921;
 }
