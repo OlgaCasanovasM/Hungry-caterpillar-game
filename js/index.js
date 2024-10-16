@@ -5,7 +5,7 @@ class Caterpillar {
     this.width = 20;
     this.height = 10;
     this.positionX = 20;
-    this.positionY = 30;
+    this.positionY = 15;
     this.caterpillar = null;
 
     this.displayCaterpillar();
