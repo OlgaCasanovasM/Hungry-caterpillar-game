@@ -5,22 +5,29 @@ body {
   align-items: center;
 }
 
+#title-container {
+  display: flex;
+  gap: 60px;
+}
+
 #game-title {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   color: #5a3921;
-  text-align: center;
-  position: relative;
 }
+
+#point-area {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: #5a3921;
+  display: flex;
+  gap: 10px;
+}
+
 #word-points {
   color: #5a3921;
-  position: absolute;
-  left: 25vw;
 }
 
 #new-point {
   color: #5a3921;
-  position: absolute;
-  left: 30vw;
 }
 #game-view {
   display: flex;

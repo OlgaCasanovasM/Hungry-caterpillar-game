@@ -136,7 +136,7 @@ setInterval(function () {
 }, 100);
 
 let count = 0;
-const veggInterval = setInterval(function () {
+let veggInterval = setInterval(function () {
   newVeggArr.forEach((element, index) => {
     element.moveLeft();
     if (
