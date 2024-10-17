@@ -20,7 +20,7 @@ body {
 #new-point {
   color: #5a3921;
   position: absolute;
-  left: 40vw;
+  left: 30vw;
 }
 #game-view {
   display: flex;
