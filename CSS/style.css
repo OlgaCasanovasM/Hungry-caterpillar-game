@@ -5,11 +5,12 @@ body {
   align-items: center;
 }
 
-h1 {
+#game-title {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   color: #5a3921;
   text-align: center;
   position: relative;
+  right: 10vw;
 }
 #word-points {
   color: #5a3921;

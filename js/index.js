@@ -136,7 +136,7 @@ setInterval(function () {
 }, 100);
 
 let count = 0;
-setInterval(function () {
+const veggInterval = setInterval(function () {
   newVeggArr.forEach((element, index) => {
     element.moveLeft();
     if (
@@ -163,6 +163,7 @@ function touchTunnel() {
   ) {
     gameView.style.display = "none";
     endView.style.display = "block";
+    clearInterval(veggInterval);
   }
 }
 
