@@ -174,8 +174,8 @@ function restartGame() {
 
   // setting catterpillar to its original size
   newPlayer.width = 10;
-  newPlayer.height = 6;
-  newPlayer.positionX = 20;
+  newPlayer.height = 10;
+  newPlayer.positionX = 0;
   newPlayer.positionY = 15;
   newPlayer.caterpillar.style.width = newPlayer.width + "vw";
   newPlayer.caterpillar.style.height = newPlayer.height + "vh";
@@ -195,6 +195,26 @@ function restartGame() {
   newVeggArr.length = 0; // remove from array
 
   //setting counter back to 0
+  count = 0;
+  counter.innerText = count;
+
+  //restart interval
+  veggInterval = setInterval(function () {
+    newVeggArr.forEach((element, index) => {
+      element.moveLeft();
+      if (
+        newPlayer.positionX < element.positionX + element.width &&
+        newPlayer.positionX + newPlayer.width > element.positionX &&
+        newPlayer.positionY < element.positionY + element.height &&
+        newPlayer.positionY + newPlayer.height > element.positionY
+      ) {
+        element.vegg.remove();
+        newVeggArr.splice(index, 1);
+        count++;
+        counter.innerText = count;
+      }
+    });
+  }, 100);
 }
 
 /////////////EVENT LISTENERS//////////////////////////
