@@ -2,9 +2,9 @@
 
 class Caterpillar {
   constructor() {
-    this.width = 15;
-    this.height = 15;
-    this.positionX = 20;
+    this.width = 10;
+    this.height = 10;
+    this.positionX = 0;
     this.positionY = 15;
     this.caterpillar = null;
 
@@ -33,9 +33,9 @@ class Caterpillar {
 class JunkFood {
   constructor() {
     this.width = 8;
-    this.height = 15;
+    this.height = 8;
     this.positionX = 100;
-    this.positionY = Math.floor(Math.random() * (60 - this.height + 1));
+    this.positionY = Math.floor(Math.random() * (40 - this.height + 1));
     this.junk = null;
 
     this.displayJunk();
@@ -60,9 +60,9 @@ class JunkFood {
 class Veggies {
   constructor() {
     this.width = 8;
-    this.height = 15;
+    this.height = 8;
     this.positionX = 100;
-    this.positionY = Math.floor(Math.random() * (60 - this.height + 1));
+    this.positionY = Math.floor(Math.random() * (40 - this.height + 1));
     this.vegg = null;
 
     this.displayJunk();
@@ -125,8 +125,8 @@ setInterval(function () {
       element.junk.remove();
       newJunkArr.splice(index, 1);
 
-      newPlayer.width++;
-      newPlayer.height = newPlayer.height + 4;
+      newPlayer.width = newPlayer.width * 1.1;
+      newPlayer.height = newPlayer.height * 1.1;
       newPlayer.caterpillar.style.width = newPlayer.width + "vw";
       newPlayer.caterpillar.style.height = newPlayer.height + "vh";
     }
@@ -193,6 +193,8 @@ function restartGame() {
     vegg.vegg.remove(); // Remove from DOM
   });
   newVeggArr.length = 0; // remove from array
+
+  //setting counter back to 0
 }
 
 /////////////EVENT LISTENERS//////////////////////////
