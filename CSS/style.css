@@ -15,13 +15,13 @@ body {
 #word-points {
   color: #5a3921;
   position: absolute;
-  left: 25vw;
+  left: 40vw;
 }
 
 #new-point {
   color: #5a3921;
   position: absolute;
-  left: 30vw;
+  left: 45vw;
 }
 #game-view {
   display: flex;
